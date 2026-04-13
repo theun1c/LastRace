@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="LastRace.Desktop.Views.UserPageView"
+             xmlns:vm="using:LastRace.Desktop.ViewModels"
+             x:DataType="vm:UserPageViewModel">
+    <StackPanel>
+        <TextBlock Text="{Binding  User.Email, StringFormat=Email: {0}}"/> 
+        <TextBlock Text="{Binding User.Username, StringFormat=Name: {0}}"/> 
+        <TextBlock Text="{Binding User.Role.Name, StringFormat=Role: {0}}"/> 
+        <TextBlock Text="{Binding User.Role.Description, StringFormat=Role desc: {0}}"/> 
+    </StackPanel>
+</UserControl>

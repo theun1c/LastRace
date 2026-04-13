@@ -1,3 +1,4 @@
+using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace LastRace.Desktop.ViewModels;
@@ -10,22 +11,16 @@ public partial class LoginPageViewModel : ViewModelBase
 
     public void Enter()
     {
-        if (Login != "admin")
+        MainWindowViewModel.Instance.currentUser = db.Users.FirstOrDefault(x => x.Email == login && x.PasswordHash == password);
+
+        if (MainWindowViewModel.Instance.currentUser != null)
         {
-            Message = "You entered incorrect login.";
+            Message = "You logged in.";
+            MainWindowViewModel.Instance.PageSwitcher = new UserPageViewModel();
         } 
-        else if (Password != "admin")
+        else
         {
             Message = "You entered incorrect password.";
         }
-        else
-        {
-            // else role == какая-то роль то в свиче выводить разные страницы
-            
-            Message = "You logged in.";
-            
-            MainWindowViewModel.Instance.PageSwitcher = new AdminPageViewModel();
-        }
-        
     }
 }
