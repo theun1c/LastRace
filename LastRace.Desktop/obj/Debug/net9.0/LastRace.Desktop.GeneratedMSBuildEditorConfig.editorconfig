@@ -26,6 +26,9 @@ build_property.EnableCodeStyleSeverity =
 [/home/theun1c/RiderProjects/LastRace/LastRace.Desktop/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/home/theun1c/RiderProjects/LastRace/LastRace.Desktop/Views/AdminPageView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/home/theun1c/RiderProjects/LastRace/LastRace.Desktop/Views/LoginPageView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
