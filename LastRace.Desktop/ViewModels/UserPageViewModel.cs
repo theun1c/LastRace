@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LastRace.Desktop.Models;
@@ -9,8 +10,12 @@ public partial class UserPageViewModel : ViewModelBase
 {
     [ObservableProperty] User user;
 
+    public List<Role> roles => db.Roles.ToList();
+    
     public UserPageViewModel()
     {
         user = MainWindowViewModel.Instance.currentUser;
     }
+
+    public void UpdateUser() => db.SaveChanges();
 }

@@ -7,9 +7,19 @@
              xmlns:vm="using:LastRace.Desktop.ViewModels"
              x:DataType="vm:UserPageViewModel">
     <StackPanel>
-        <TextBlock Text="{Binding  User.Email, StringFormat=Email: {0}}"/> 
-        <TextBlock Text="{Binding User.Username, StringFormat=Name: {0}}"/> 
-        <TextBlock Text="{Binding User.Role.Name, StringFormat=Role: {0}}"/> 
-        <TextBlock Text="{Binding User.Role.Description, StringFormat=Role desc: {0}}"/> 
+        <TextBox Text="{Binding  User.Email}"/> 
+        <TextBox Text="{Binding User.Username}"/> 
+        
+        <ComboBox ItemsSource="{Binding roles}" SelectedItem="">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <TextBox Text="{Binding User.Role.Description}"/> 
+        
+        <Button Content="Update" Command="{Binding UpdateUser}"></Button>
     </StackPanel>
 </UserControl>
