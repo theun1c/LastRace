@@ -6,5 +6,16 @@
              x:Class="LastRace.Desktop.Views.AdminPageView"
              xmlns:vm="using:LastRace.Desktop.ViewModels"
              x:DataType="vm:AdminPageViewModel">
-    Welcome to ADMIN PAGE!
+    <ListBox ItemsSource="{Binding Users}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel>
+                    <TextBlock Text="{Binding  Email, StringFormat=Email: {0}}"/> 
+                    <TextBlock Text="{Binding Username, StringFormat=Name: {0}}"/> 
+                    <TextBlock Text="{Binding Role.Name, StringFormat=Role: {0}}"/> 
+                    <TextBlock Text="{Binding Role.Description, StringFormat=Role desc: {0}}"/> 
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>

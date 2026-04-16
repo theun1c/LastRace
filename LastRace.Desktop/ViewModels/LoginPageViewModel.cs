@@ -16,7 +16,15 @@ public partial class LoginPageViewModel : ViewModelBase
         if (MainWindowViewModel.Instance.currentUser != null)
         {
             Message = "You logged in.";
-            MainWindowViewModel.Instance.PageSwitcher = new UserPageViewModel();
+            if (MainWindowViewModel.Instance.currentUser.Role != null &&
+                MainWindowViewModel.Instance.currentUser.Role.Name == "admin")
+            {
+                MainWindowViewModel.Instance.PageSwitcher = new AdminPageViewModel();
+            }
+            else
+            {
+                MainWindowViewModel.Instance.PageSwitcher = new UserPageViewModel();
+            }
         } 
         else
         {
